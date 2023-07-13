@@ -12,7 +12,7 @@ mercadopago.configure({
     access_token: process.env.ACCESS_TOKEN
 })  
 
-app.engine('handlebars', exphbs())
+app.engine('handlebars', exphbs())  
 app.set('view engine', 'handlebars')
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
