@@ -500,7 +500,7 @@
         const handleSubmit = async function (e) {
             e.preventDefault()
             const formData = new FormData(e.target)
-            const result = await fetch('http://localhost:3000/createPayment', {
+            const result = await fetch('https://checkoutpro-integration.onrender.com/createPayment', {
                 method: 'post',
                 headers: {
                     'Content-Type': 'application/json',
