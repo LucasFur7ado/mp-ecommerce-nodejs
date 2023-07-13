@@ -29,6 +29,9 @@ mp.createPayment = (req, res) => {
         ],
         payer: {
             name: 'Lalo Landa',
+            surname: 'Lalo Landa',
+            first_name: 'Lalo Landa',
+            last_name: 'Lalo Landa',
             email: 'test_user_17805074@testuser.com',
             phone: {
                 area_code: '598',
@@ -37,6 +40,7 @@ mp.createPayment = (req, res) => {
             address: {
                 zip_code: '60000',
                 street_name: 'calle falsa 123',
+                street_number: 7,
             }
         },
         payment_methods: {
