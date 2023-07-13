@@ -7,5 +7,6 @@ const router = Router()
 router.get('/', main.main)
 router.get('/detail', main.renderDetail)
 router.post('/createPayment', mp.createPayment)
+router.post('/notifications', mp.notifications)
 
 export { router }
