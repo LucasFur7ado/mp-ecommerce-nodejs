@@ -1,22 +1,23 @@
-var express = require('express');
-var exphbs  = require('express-handlebars');
-var port = process.env.PORT || 3000
+import 'dotenv/config'
+import path from 'path'
+import express from 'express'
+import mercadopago from 'mercadopago'
+import exphbs from 'express-handlebars'
+import { router } from './routes/routes.js'
 
-var app = express();
- 
-app.engine('handlebars', exphbs());
-app.set('view engine', 'handlebars');
+const port = process.env.PORT || 3000
+const app = express()
 
-app.use(express.static('assets'));
- 
-app.use('/assets', express.static(__dirname + '/assets'));
+mercadopago.configure({
+    access_token: process.env.ACCESS_TOKEN
+})  
 
-app.get('/', function (req, res) {
-    res.render('home');
-});
+app.engine('handlebars', exphbs())
+app.set('view engine', 'handlebars')
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
+app.use(express.static('assets'))
+app.use('/assets', express.static(path.join(process.cwd(), 'assets')))
+app.use(router)
 
-app.get('/detail', function (req, res) {
-    res.render('detail', req.query);
-});
-
-app.listen(port);
+app.listen(port, () => console.log('Listening...'))
