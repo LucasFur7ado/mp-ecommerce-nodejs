@@ -27,7 +27,7 @@ mp.createPayment = (req, res) => {
             email: 'test_user_17805074@testuser.com',
             phone: {
                 area_code: '598',
-                number: '098564878'
+                number: 98564878
             },
             address: {
                 zip_code: '60000',
@@ -57,7 +57,9 @@ mp.createPayment = (req, res) => {
             })
         })
         .catch(error => {
-            console.log({ error })
+            console.log({
+                mp_error: error
+            })
             res.status(400).send('something went wrong')
         })
 }
