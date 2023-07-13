@@ -9,6 +9,7 @@ const port = process.env.PORT || 3000
 const app = express()
 
 mercadopago.configure({
+    integrator_id: process.env.INTEGRATOR_ID,
     access_token: process.env.ACCESS_TOKEN
 })  
 

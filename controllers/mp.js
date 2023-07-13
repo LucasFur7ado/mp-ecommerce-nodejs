@@ -28,10 +28,8 @@ mp.createPayment = (req, res) => {
             },
         ],
         payer: {
-            name: 'Lalo Landa',
-            surname: 'Lalo Landa',
-            first_name: 'Lalo Landa',
-            last_name: 'Lalo Landa',
+            name: 'Lalo',
+            surname: 'Landa',
             email: 'test_user_17805074@testuser.com',
             phone: {
                 area_code: '598',
