@@ -8,7 +8,12 @@ mp.notifications = (req, res) => {
 }
 
 mp.createPayment = (req, res) => {
-    const { title, image_url } = req.body
+    let { title, image_url } = req.body
+
+    if(!title || !image_url)
+        return res.status(400).send('bad request')
+
+    image_url = image_url.replace('./assets', process.env.URL)
 
     const preference = {
         items: [
@@ -46,6 +51,7 @@ mp.createPayment = (req, res) => {
         auto_return: "approved",
         statement_descriptor: 'Compra Móvil',
         external_reference: process.env.EXTERNAL_REFERENCE,
+        integrator_id: 'dev_24c65fb163bf11ea96500242ac130004',
         notification_url: process.env.URL + '/notifications',
     }
 
