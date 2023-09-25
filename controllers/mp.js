@@ -65,6 +65,7 @@ mp.createPayment = (req, res) => {
     mercadopago.preferences
         .create(preference)
         .then(response => {
+            console.log({ response })
             res.send({
                 id: response.body.id
             })
