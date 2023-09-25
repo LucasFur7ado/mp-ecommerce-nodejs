@@ -3,7 +3,13 @@ import mercadopago from 'mercadopago'
 export const mp = {}
 
 mp.notifications = (req, res) => {
-    console.log({ req })
+    console.log("HEADERS => ", req.headers)
+    console.log("QUERY => ", req.query)
+    console.log("PARAMS => ", req.params)
+    console.log("BODY => ", req.body)
+    console.log("USER => ", req.user)
+    console.log("COOKIES => ", req.cookies)
+    console.log("URL => ", req.url)
     res.send('ok')
 }
 
@@ -53,7 +59,6 @@ mp.createPayment = (req, res) => {
         auto_return: "approved",
         statement_descriptor: 'Compra Móvil',
         external_reference: process.env.EXTERNAL_REFERENCE,
-        integrator_id: 'dev_24c65fb163bf11ea96500242ac130004',
         notification_url: process.env.URL + '/notifications',
     }
 
